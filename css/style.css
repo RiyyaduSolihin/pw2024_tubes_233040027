@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins,sans-serif;
+   
+}
+body {
+    background-image: url(../images/liverpool.jpg);
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width : 450px;
+    min-height: 450px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15%;
+    box-shadow: 1,1px,5px black;
+    padding: 40px 30px;
+}
+
+.container .login-text {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 500;
+    text-align: 1.1rem;
+    text-align: center;
+    margin-bottom: 20px;
+    display:  block;
+}
+
+.container .login-email .input-group {
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+
+}
+
+.container .login-email .input-group input{
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    background: transparent;
+    padding: 15px 20px;
+    font-size: 1rem;
+    outline: none;
+    transition: .3s;
+}
+
+.container .login-email .input-group input:focus, .container .login-email
+.input-group input:valid {
+    border : violet; 
+}
+
+.container .login-email .input-group .btn {
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: none;
+    text-align: center;
+    border: none;
+    background-color: blue;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+}
+
+.container .login-email .input-group .btn:hover {
+    transform: translate(-1px);
+    background: blueviolet;
+}
+
+.login-register-text {
+    color: #111;
+    font-weight: 600;
+}
+
+.login-register-text a{
+    text-decoration: none;
+    color: blueviolet;
+}
+@media(max-width: 430px) {
+    .container {
+        width: 330px;
+    }
+}
+    input {
+        width: 100%;
+        height: 100%;
+        border: 2px solid black;
+        padding: 15px 20px;
+        font-size: 1rem;
+        border-radius: 30px;
+        background: transparent;
+        transition: .3s;
+
+    }
+
+    .container .login-email .input-group.btn{
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        text-align: center;
+        border: none;
+        background: blueviolet;
+        outline: none;
+        border-radius: 30px;
+        font-size: 1.2rem;
+        color: aliceblue;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    .container.login-email.input-group .btn:hover{
+        transform: translate(-5px);
+        background: blueviolet;
+    }
+
+    .login-register-text {
+        font-weight: 600;
+    }
+

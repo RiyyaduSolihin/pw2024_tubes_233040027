@@ -1,0 +1,64 @@
+* {
+
+    font-family: "Poppins", sans-serif;
+  }
+
+
+  
+.banner {
+    background: url(../images/revisi.jpg) no-repeat center center;
+    background-size: cover;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    color: #fff;
+}
+
+/* layanan */
+
+.lingkaran {
+  display: inline-block;
+  border-radius: 50%;
+  width: 150px;
+  margin-top: auto;
+  height: 150px;
+  color: #fff;
+  background-color: brown;
+}
+
+.lingkaran i {
+  position: relative;
+  top: 30px;
+}
+
+.card .btn {
+    display: block;
+    width: 50%;
+    height: 40px;
+    padding: none;
+    text-align: center;
+    border: none;
+    background-color: blue;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+}
+
+.card .btn:hover {
+    transform: translate(-1px);
+    background: blueviolet;
+}
+
+/* search css */
+.btn.btn-search {
+  border-radius: 0;
+  height: 50px;
+  background: #f60303;
+}
+
+.search-input:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
