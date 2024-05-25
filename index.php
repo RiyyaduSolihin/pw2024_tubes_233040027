@@ -63,7 +63,7 @@
   </div>
 </div>
 
-<!-- Produk -->
+<!-- Artikel -->
 <div class="container-fluid pt-5 pb-5 bg-light">
   <div class="container text-center">
  <h2 class="display-3"  style="font-family: sans-serif;" id="artikel">Artikel</h2>
@@ -83,7 +83,7 @@
   <div class="col-md-4 ">
     <div class="card" ;>
       <img src="images/miracle.jpg" class="card-img-top" 
-      alt="balado">
+      alt="">
       <div class="card-body">
         <h5 class="card-title">Fakta Menarik di balik Kejaiban istanbul</h5>
         <a href="" class="btn">Read more</a>
@@ -94,7 +94,7 @@
   <div class="col-md-4">
     <div class="card">
       <img src="images/arne.jpg" class="card-img-top" 
-      alt="balado">
+      alt="">
       <div class="card-body">
         <h5 class="card-title">Welcome Arne Slot, Pelatih baru liverpool</h5>
         <a href="" class="btn">Read more</a>
@@ -105,7 +105,7 @@
   <div class="col-md-4">
     <div class="card">
       <img src="images/liga.jpg" class="card-img-top" 
-      alt="balado">
+      alt="">
       <div class="card-body">
         <h5 class="card-title">Gelar pertama Liverpool di era Primier leageu</h5>
         <a href="" class="btn">Read more</a>
@@ -116,7 +116,7 @@
   <div class="col-md-4">
     <div class="card">
       <img src="images/klo.jpg" class="card-img-top" 
-      alt="balado">
+      alt="">
       <div class="card-body">
         <h5 class="card-title">Terimakasih Jurgen</h5>
         <a href="" class="btn">Read more</a>
