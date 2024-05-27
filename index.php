@@ -150,20 +150,56 @@
   </div>
 </div>
 
-<!-- Layanan -->
+<!-- Trofi -->
 <div class="container-fluid layanan pt-5 pb-5">
   <div class="container text-center">
-    <h2 class="display-3" style="font-family: sans-serif;" id="layanan">Layanan</h2>
+    <h2 class="display-3" style="font-family: sans-serif;" id="layanan">Trofi</h2>
     <p></p>
     <div class="row pt-6">
       <div class="col-md-6">
-        <span class="lingkaran"><a href="https://wa.me/+6285223160254" style="font-size: 4rem; color: black; "><i class="bi bi-whatsapp"></i></a></span>
-        <h3 class="mt-3">Whatsapp</h3>
+        <span class="lingkaran"><img src="images/eropa.png" alt="" width="100%"></span>
+        <h3 class="mt-3">champions</h3>
         <p> <br></p>
       </div>
       <div class="col-md-6">
-        <span class="lingkaran"><i class="bi bi-house-door" style="font-size: 4rem; color: black; "></i></span>
-        <h3 class="mt-3">Alamat</h3>
+        <span class="lingkaran"><img src="images/trofiliga.png" alt="" width="60%"></span>
+        <h3 class="mt-3">Liga inggris</h3>
+        <p> <br>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <span class="lingkaran"><img src="images/fa.png" alt="" width="100%"></span>
+        <h3 class="mt-3">Fa cup</h3>
+        <p> <br>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <span class="lingkaran"><img src="images/carabou.png" alt="" width="100%"></span>
+        <h3 class="mt-3">Carabou cup</h3>
+        <p> <br>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <span class="lingkaran"><img src="images/dunia.png" alt="" width="100%"></span>
+        <h3 class="mt-3">Piala dunia antar klub</h3>
+        <p> <br>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <span class="lingkaran"><img src="images/shield.png" alt="" width="100%"></span>
+        <h3 class="mt-3">comunity shield</h3>
+        <p> <br>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <span class="lingkaran"><img src="images/super.png" alt="" width="50%"></span>
+        <h3 class="mt-3">Piala super eropa</h3>
+        <p> <br>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <span class="lingkaran"><img src="images/uefa.png" alt="" width="70%"></span>
+        <h3 class="mt-3">UEFA cup/Liga eropa</h3>
         <p> <br>
         </p>
       </div>

@@ -22,13 +22,10 @@
   margin-top: auto;
   height: 150px;
   color: #fff;
-  background-color: brown;
+  background-color: white;
 }
 
-.lingkaran i {
-  position: relative;
-  top: 30px;
-}
+
 
 .card .btn {
     display: block;
