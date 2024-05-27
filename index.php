@@ -36,10 +36,10 @@
                 <a class="nav-link" href="#artikel">Artikel</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#layanan">Layanan</a>
+                <a class="nav-link" href="#trofi">Layanan</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#kontak">Login</a>
+                <a class="nav-link" href="logout.php">logout</a>
               </li>
             </ul>
           </div>
@@ -153,7 +153,7 @@
 <!-- Trofi -->
 <div class="container-fluid layanan pt-5 pb-5">
   <div class="container text-center">
-    <h2 class="display-3" style="font-family: sans-serif;" id="layanan">Trofi</h2>
+    <h2 class="display-3" style="font-family: sans-serif;" id="trofi">Trofi</h2>
     <p></p>
     <div class="row pt-6">
       <div class="col-md-6">
@@ -206,7 +206,7 @@
     </div>
   </div>
 </div>
-<!-- Kontak  -->
+<!-- logout  -->
 
 <div class="container text-center pt-5 pb-5">
    The Kopites&copy; 2024

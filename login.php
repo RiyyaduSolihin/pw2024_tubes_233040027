@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (isset($_SESSION['admin_username'])) {
+    header("location:admin.php");
+}
 include("koneksi.php");
 $username = "";
 $password ="";
@@ -20,7 +24,7 @@ if (isset($_POST['login'])) {
 
     if(empty($err)) {
         $_SESSION['admin_username'] = $username;
-        header("location:admin_depan.php");
+        header("location:admin.php");
         exit();
     }
 
