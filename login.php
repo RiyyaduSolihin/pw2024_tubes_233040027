@@ -41,7 +41,7 @@ if (isset($_POST['login'])) {
 </head>
 <body>
     <div class="container">
-    <p style="font-size: 2rem;font-weight:850;" class="login-text">Login</p>
+    <p style="font-size: 2rem;font-weight:850;" class="login-text">Login Admin</p>
         <form action="" method="POST" class="login-email">
             <?php
             if ($err){
@@ -53,6 +53,9 @@ if (isset($_POST['login'])) {
             <div class="input-group"><input type="submit" name="login" value="login"class="btn"></div>
             <p class="login-register-text">Tidak memiliki akun ?
                 <a href="register.php">Register</a>
+            <p class="login-register-text">untuk login ke halaman user
+                <a href="loginuser.php">Login user</a>
+            </p>
             </p>
         </form>
     </div>

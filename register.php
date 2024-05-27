@@ -16,7 +16,7 @@
             <div class="input-group"><input type="password" placeholder="Confirm password" name="cppassword"></div>
             <div class="input-group"><button name="submit" class="btn">Register</button></div>
             <p class="login-register-text">Sudah Punya akun ?
-                <a href="login.php">Login</a>
+                <a href="loginuser.php">Login</a>
             </p>
         </form>
     </div>
