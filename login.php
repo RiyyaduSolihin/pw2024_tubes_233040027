@@ -1,3 +1,32 @@
+<?php
+include("koneksi.php");
+$username = "";
+$password ="";
+$err = "";
+if (isset($_POST['login'])) {
+    $username  = $_POST['username'];
+    $password  = $_POST['password'];
+    if ($username == '' or $password == ''){
+        $err .= "<li>Silahkan masukkan username dan password</li>";
+    }
+    if (empty($err)) {
+        $sql1 = "select * from admin where username = '$username'";
+        $q1 = mysqli_query($koneksi,$sql1);
+        $r1 = mysqli_fetch_array($q1);
+        if ($r1['password'] != md5($password)) {
+            $err .= "<li>akun tidak ditemukan</li>";
+        }
+    }
+
+    if(empty($err)) {
+        $_SESSION['admin_username'] = $username;
+        header("location:admin_depan.php");
+        exit();
+    }
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +37,16 @@
 </head>
 <body>
     <div class="container">
+    <p style="font-size: 2rem;font-weight:850;" class="login-text">Login</p>
         <form action="" method="POST" class="login-email">
-            <p style="font-size: 2rem;font-weight:850;" class="login-text">Login</p>
-            <div class="input-group"><input type="text" placeholder="Username" name="username"></div>
+            <?php
+            if ($err){
+                echo "$err";
+            }
+            ?>
+            <div class="input-group"><input type="text" value="<?php echo $username?>"placeholder="username" name="username"></div>
             <div class="input-group"><input type="password" placeholder="password" name="password"></div>
-            <div class="input-group"><button name="submit" class="btn">Log in</button></div>
+            <div class="input-group"><input type="submit" name="login" value="login"class="btn"></div>
             <p class="login-register-text">Tidak memiliki akun ?
                 <a href="register.php">Register</a>
             </p>
