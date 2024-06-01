@@ -2,12 +2,12 @@
 require 'function.php';
 
 if (isset($_POST["login"])) {
-    $username = $_POST["username"];
+    $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $result= mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+    $result= mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
 
-    // cek username
+    // cek mail
     if( mysqli_num_rows($result) === 1) {
 
         //cek password
@@ -17,6 +17,8 @@ if (isset($_POST["login"])) {
             exit;
         }
     }
+
+    $error = true;
 }
 ?>
 <!DOCTYPE html>
@@ -31,7 +33,7 @@ if (isset($_POST["login"])) {
     <div class="container">
     <p style="font-size: 2rem;font-weight:850;" class="login-text">Login</p>
         <form action="" method="POST" class="login-email">
-            <div class="input-group"><input type="text" placeholder="username" name="username"></div>
+            <div class="input-group"><input type="text" placeholder="email" name="email"></div>
             <div class="input-group"><input type="password" placeholder="password" name="password"></div>
             <div class="input-group"><input type="submit" name="login" value="login"class="btn"></div>
             <p class="login-register-text">Tidak memiliki akun ?

@@ -1,51 +1,47 @@
 <?php
-function koneksi(){
+// function koneksi
 $conn =  mysqli_connect("localhost", "root", "", "pw2024_tubes_233040027");
 return $conn;
-}
 
 
-function query($query) {
-    global $conn;
-    $result = mysqli_query($conn, $query);
-    $rows = [];
-    while ( $row = mysqli_fetch_assoc($result)) {
-        $rows [] = $row;
-    }
 
-    return $row ;
-}
+// function query($query) {
+//     global $conn;
+//     $result = mysqli_query($conn, $query);
+//     $rows = [];
+//     while ( $row = mysqli_fetch_assoc($result)) {
+//         $rows [] = $row;
+//     }
 
-// function register($data)
-// {
-//     global $conn ;
-//     $username = strtolower ($data ['username']);
-//     $email = mysqli_real_escape_string($conn, $data ['email']);
-//     $password = mysqli_real_escape_string($conn, $data ['password']);
-
-//     // enkripsi password
-//     $password = password_hash($password, PASSWORD_DEFAULT);
-
-//     // tambahkan userbaru ke database
-//     mysqli_query($conn, "INSERT INTO user VALUES('', '$username', '$password')");
-
-//     return mysqli_affected_rows($conn);
-
+//     return $row ;
 // }
 
 function register($data)
 {
     global $conn ;
-    $username = htmlspecialchars ($data ['username']);
+
+    $fullname = htmlspecialchars ($data ['fullname']);
+    $username = strtolower (stripslashes ($data ['username']));
     $email = htmlspecialchars($data ['email']);
-    $password = htmlspecialchars($data ['password']);
-    
-    
-    $query= "INSERT INTO user
-              VALUES (null, '$username', '$email', '$password')
-              ";
-    
-    mysqli_query($conn, $query) or die(mysqli_error($conn));
+    $password = mysqli_real_escape_string($conn, $data ['password']);
+
+    // cek username
+    $result = mysqli_query($conn, "SELECT username FROM users WHERE username = '$username'");
+
+    if ( mysqli_fetch_assoc($result) ) {
+                echo "<script>
+                alert ('username sudah terdaftar!')
+                </script>";
+    }
+
+    // enkripsi password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    // tambahkan userbaru ke database
+    mysqli_query($conn, "INSERT INTO users VALUES('$fullname', '$username', '$email','$password')");
 
     return mysqli_affected_rows($conn);
+
 }
+
+

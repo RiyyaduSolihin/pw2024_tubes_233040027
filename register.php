@@ -2,7 +2,7 @@
 <?php
 require 'function.php'; 
 if ( isset($_POST["register"]) ) {
-  $conn = koneksi();  
+
   if( register($_POST) > 0 ) {
     echo "<script>
             alert('user baru berhasil ditambahkan!');
@@ -33,6 +33,7 @@ if ( isset($_POST["register"]) ) {
     <div class="container">
         <form action="" method="POST" class="login-email">
             <p style="font-size: 2rem;font-weight:850;" class="login-text">Register</p>
+            <div class="input-group"><input type="text" placeholder="fullname" name="fullname"></div>
             <div class="input-group"><input type="text" placeholder="username" name="username"></div>
             <div class="input-group"><input type="text" placeholder="email" name="email"></div>
             <div class="input-group"><input type="password" placeholder="password" name="password"></div>
