@@ -1,3 +1,12 @@
+<?php
+require 'function.php';
+
+//ambil data dari tabel users
+$artikel = query("SELECT * FROM artikel");
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

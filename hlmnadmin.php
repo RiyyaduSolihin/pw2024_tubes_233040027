@@ -1,4 +1,11 @@
+<?php
+require 'function.php';
 
+//ambil data dari tabel users
+$users = query("SELECT * FROM users");
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +32,7 @@
     <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">No</th>
       <th scope="col">fullname</th>
       <th scope="col">ussename</th>
       <th scope="col">Email</th>
@@ -34,18 +41,23 @@
     </tr>
   </thead>
   <tbody>
+    <?php $i = 1; ?>
+    <?php foreach ( $users as $row ) : ?>
         <tr>
-       <th scope="row"></th> 
-      <td>fullname</td>
-      <td>ussename</td>
-      <td>email</td>
-      <td>password</td>
+
+       <th scope="row"><?= $i; ?></th> 
+      <td><?= $row["fullname"]; ?></td>
+      <td><?= $row["username"]; ?></td>
+      <td><?= $row["email"]; ?></td>
+      <td><?= $row["password"]; ?></td>
       <td>
         <a href="" class="badge text-bg-warning text-decoration-none">ubah</a>
         <a href="" class="badge text-bg-danger text-decoration-none">Hapus</a>
       </td>
       
     </tr>
+      <?php $i++; ?>
+    <?php endforeach; ?>
     
   </tbody>
 </table>

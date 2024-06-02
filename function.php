@@ -1,20 +1,20 @@
 <?php
 // function koneksi
 $conn =  mysqli_connect("localhost", "root", "", "pw2024_tubes_233040027");
-return $conn;
+// return $conn;
 
 
 
-// function query($query) {
-//     global $conn;
-//     $result = mysqli_query($conn, $query);
-//     $rows = [];
-//     while ( $row = mysqli_fetch_assoc($result)) {
-//         $rows [] = $row;
-//     }
+function query($query) {
+    global $conn;
+    $result = mysqli_query($conn, $query);
+    $rows = [];
+    while ( $row = mysqli_fetch_assoc($result)) {
+        $rows [] = $row;
+    }
 
-//     return $row ;
-// }
+    return $rows ;
+}
 
 function register($data)
 {
@@ -35,7 +35,7 @@ function register($data)
     }
 
     // enkripsi password
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    // $password = password_hash($password, PASSWORD_DEFAULT);
 
     // tambahkan userbaru ke database
     mysqli_query($conn, "INSERT INTO users VALUES('$fullname', '$username', '$email','$password')");
