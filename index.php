@@ -1,7 +1,7 @@
 <?php
 require 'function.php';
 
-//ambil data dari tabel users
+//ambil data dari tabel artikel
 $artikel = query("SELECT * FROM artikel");
 
 
@@ -78,6 +78,7 @@ $artikel = query("SELECT * FROM artikel");
  <h2 class="display-3"  style="font-family: sans-serif;" id="artikel">Artikel</h2>
 
  <!-- Tombol search -->
+
  <div class="col-md-6 col-lg-6 col-11 mx-auto my-auto search">
     <div class="input-group from-container">
       <input type="text" name="search" class="form-control search-input" placeholder="search">
@@ -88,8 +89,10 @@ $artikel = query("SELECT * FROM artikel");
       </span>
     </div>
  </div>
+ <?php $i = 1; ?>
+    <?php foreach ( $artikel as $row ) : ?>
  <div class="row pt-5 gx-4 gy-4">
-  <div class="col-md-4 ">
+  <!-- <div class="col-md-4 ">
     <div class="card" ;>
       <img src="images/miracle.jpg" class="card-img-top" 
       alt="">
@@ -140,22 +143,26 @@ $artikel = query("SELECT * FROM artikel");
       <div class="card-body">
         <h5 class="card-title">Sejarah liverpool di liga champions</h5>
         <a href="" class="btn">Read more</a>
-       
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
+
+      </div> -->
+    <!-- </div>
+  </div>  -->
+  <div class="col-4" >
     <div class="card">
-      <img src="images/firmansah.jpg" class="card-img-top" 
-      alt="balado">
+      <img src="images/<?= $row["gambar"]; ?>"class="card-img-top" 
+      alt="">
       <div class="card-body">
-        <h5 class="card-title">Trio Firmansah</h5>
+        <h5 class="card-title"><?= $row["judul"]; ?></h5>
+        <p><?= $row["isi"]; ?></p>
         <a href="" class="btn">Read more</a>
-       
+
       </div>
     </div>
   </div>
+
  </div>
+ <?php $i++; ?>
+    <?php endforeach; ?>
   </div>
 </div>
 

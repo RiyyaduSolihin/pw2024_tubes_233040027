@@ -16,6 +16,23 @@ function query($query) {
     return $rows ;
 }
 
+// function tambah($data)
+// {
+//     $conn = koneksi();
+//     $gambar = htmlspecialchars ($data ['gambar']);
+//     $judul = htmlspecialchars ($data ['judul']);
+//     $isi = htmlspecialchars($data ['isi']);
+    
+    
+//     $query= "INSERT INTO artikel
+//               VALUES (null,  '$gambar', '$judul', '$isi')
+//               ";
+    
+//     mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+//     return mysqli_affected_rows($conn);
+// }
+
 function register($data)
 {
     global $conn ;
@@ -43,5 +60,29 @@ function register($data)
     return mysqli_affected_rows($conn);
 
 }
+
+function tambah($data) {
+    global $conn;
+
+    $gambar = htmlspecialchars($data["gambar"]);
+    $judul = htmlspecialchars($data["judul"]);
+    $isi = htmlspecialchars($data["isi"]);
+
+    $query = "INSERT INTO artikel
+    VALUES
+    (null, '$gambar', '$judul', '$isi')
+    ";
+    
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+function hapus($id) {
+    global $conn;
+    mysqli_query($conn, "DELETE FROM artikel WHERE id = $id");
+    return mysqli_affected_rows($conn);
+}
+
 
 

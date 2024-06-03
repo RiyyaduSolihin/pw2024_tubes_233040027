@@ -20,7 +20,7 @@ $users = query("SELECT * FROM users");
     <div id="app">
         <nav>
             <ul>
-            <li><a href="adminartikel.php">Halaman Artikel</a></li>
+            <li><a href="artikel.php">Halaman Artikel</a></li>
             <li><a href="index.php">Halaman Web</a></li>
             <li><a href="logout.php">Logout</a></li>
             
@@ -52,7 +52,7 @@ $users = query("SELECT * FROM users");
       <td><?= $row["password"]; ?></td>
       <td>
         <a href="" class="badge text-bg-warning text-decoration-none">ubah</a>
-        <a href="" class="badge text-bg-danger text-decoration-none">Hapus</a>
+        <a href="hapususer.php?fullname=<?= $row['fullname'];?>" class="badge text-bg-danger text-decoration-none">Hapus</a>
       </td>
       
     </tr>

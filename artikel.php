@@ -1,3 +1,12 @@
+<?php
+require 'function.php';
+
+//ambil data dari tabel artikel
+$artikel = query("SELECT * FROM artikel");
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +22,7 @@
         <nav>
             <ul>
             <li><a href="hlmnadmin.php">Halaman Admin users</a></li>
+            <li><a href="tambah.php">Halaman Tambah data</a></li>
             <li><a href="index.php">Halaman Web</a></li>
             <li><a href="logout.php">Logout</a></li>
             
@@ -32,17 +42,21 @@
     </tr>
   </thead>
   <tbody>
+  <?php $i = 1; ?>
+  <?php foreach ( $artikel as $row ) : ?>
         <tr>
        <th scope="row"></th> 
-      <td>gambar</td>
-      <td>judul</td>
-      <td>isi</td>
+      <td><img src="images/<?= $row["gambar"]; ?>" width="100"></td>
+      <td><?= $row["judul"]; ?></td>
+      <td><?= $row["isi"]; ?></td>
       <td>
         <a href="" class="badge text-bg-warning text-decoration-none">ubah</a>
-        <a href="" class="badge text-bg-danger text-decoration-none">Hapus</a>
+        <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');" class="badge text-bg-danger text-decoration-none">Hapus</a>
       </td>
       
     </tr>
+    <?php $i++; ?>
+    <?php endforeach; ?>
     
   </tbody>
 </table>
