@@ -30,11 +30,13 @@ if(ubah($_POST) > 0) {
     <div class="container col-8">
     <h1>Ubah Data Artikel</h1>
 
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $art['id'];?>">
+        <input type="hidden" name="gambarLama" value="<?= $art['gambar'];?>">
         <div class="mb-3">
-            <label for="nama" class="form-label">Gambar</label>
-            <input type="text" class="form-control" id="gambar" name="gambar" value="<?= $art ['gambar']; ?>"> 
+            <label for="nama" class="form-label">Gambar</label><br>
+            <img src="images/<?= $art ['gambar']; ?>" width="80"> 
+            <input type="file" class="form-control" id="gambar" name="gambar" > 
         </div>
         <div class="mb-3">
             <label for="nim" class="form-label">judul</label>

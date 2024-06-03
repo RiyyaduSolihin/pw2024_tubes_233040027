@@ -2,6 +2,8 @@
 require 'function.php';
 if( isset($_POST["submit"]) ) {
 
+
+
    if( tambah($_POST) > 0 ) {
     echo "
     <script>
@@ -42,10 +44,10 @@ if( isset($_POST["submit"]) ) {
     <div class="container col-8">
     <h1>Form Tambah Data Artikel</h1>
 
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="gambar" class="form-label">Gambar</label>
-            <input type="text" class="form-control" id="gambar" name="gambar" required>
+            <input type="file" class="form-control" id="gambar" name="gambar" required>
         </div>
         <div class="mb-3">
             <label for="judul" class="form-label">judul</label>

@@ -64,7 +64,11 @@ function register($data)
 function tambah($data) {
     global $conn;
 
-    $gambar = htmlspecialchars($data["gambar"]);
+// upload gambar
+    $gambar= upload();
+    if( !$gambar) {
+        return false;
+    }
     $judul = htmlspecialchars($data["judul"]);
     $isi = htmlspecialchars($data["isi"]);
 
@@ -78,10 +82,57 @@ function tambah($data) {
     return mysqli_affected_rows($conn);
 }
 
+function upload() {
+  $namafile = $_FILES['gambar']['name'];
+  $ukuranfile = $_FILES['gambar']['size'];
+  $error = $_FILES ['gambar']['error'];
+  $tmpname = $_FILES['gambar']['tmp_name'];
+
+//   cek apakah tidak ada gambar yang diupload
+if ( $error === 4) {
+    echo "<script>
+    alert('pilih gambar terlebih dahulu')
+    </script>";
+
+    return false;
+}
+
+    // cek apakah yang di upload adalah gambar
+    $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiGambar = explode('.', $namafile);
+    $ekstensiGambar = strtolower(end($ekstensiGambar));
+    if ( !in_array($ekstensiGambar, $ekstensiGambarValid) ) {
+        echo "<script>
+             alert('yang di upload bukan gambar')
+             </script>";
+        
+           return false;
+    }
+    // cek jika ukurannya terlalu besar 
+    if ($ukuranfile > 1000000) {
+        echo "<script>
+        alert('ukuran gambar terlalu besar')
+        </script>";
+
+        return false;
+    }
+
+    // generate gambar baru
+    $namaFilebaru = uniqid();
+    $namaFilebaru .= '.';
+    $namaFilebaru .= $ekstensiGambar;
+
+    // gambar di upload
+    move_uploaded_file($tmpname, 'images/' . $namaFilebaru);
+
+    return $namaFilebaru;
+}
+
 function hapus($id) {
     global $conn;
     mysqli_query($conn, "DELETE FROM artikel WHERE id = $id");
     return mysqli_affected_rows($conn);
+    
 }
 
 function ubah($data) {
@@ -91,6 +142,15 @@ function ubah($data) {
     $gambar = htmlspecialchars($data["gambar"]);
     $judul = htmlspecialchars($data["judul"]);
     $isi = htmlspecialchars($data["isi"]);
+    $gambarLama = htmlspecialchars($data["gambarLama"]);
+
+// cek apakah pilih gambar baru atau tidak
+    if ( $_FILES['gambar']['eror'] === 4) {
+        $gambar = $gambarLama;
+    } else {
+        $gambar = upload();
+    }
+
 
     $query = "UPDATE artikel SET
     gambar = '$gambar',
