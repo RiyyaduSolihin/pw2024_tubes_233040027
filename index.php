@@ -4,6 +4,11 @@ require 'function.php';
 //ambil data dari tabel artikel
 $artikel = query("SELECT * FROM artikel");
 
+// tombol cari diklik
+if( isset($_POST["cari"]) ) {
+  $artikel = cari($_POST["keyword"]);
+
+}
 
 ?>
 
@@ -79,19 +84,21 @@ $artikel = query("SELECT * FROM artikel");
 
  <!-- Tombol search -->
 
- <div class="col-md-6 col-lg-6 col-11 mx-auto my-auto search">
+ <form action=""  method="POST">
+    <div class="col-md-6 col-lg-6 col-11 mx-auto my-auto search">
     <div class="input-group from-container">
-      <input type="text" name="search" class="form-control search-input" placeholder="search">
+      <input type="text" name="keyword" class="form-control search-input" placeholder="search" autofocus autocomplate="off">
       <span class="input-group-btn">
-        <button class="btn btn-search">
+        <button type="submit" name="cari">
           <img src="images/search.png" alt="" width="35">
         </button>
       </span>
     </div>
  </div>
+ </form>
  <?php $i = 1; ?>
     <?php foreach ( $artikel as $row ) : ?>
- <div class="row pt-5 gx-4 gy-4">
+ <div class="row pt-5 gx-4 gy-4 d-flex">
   <!-- <div class="col-md-4 ">
     <div class="card" ;>
       <img src="images/miracle.jpg" class="card-img-top" 

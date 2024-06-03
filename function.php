@@ -36,7 +36,7 @@ function query($query) {
 function register($data)
 {
     global $conn ;
-
+    
     $fullname = htmlspecialchars ($data ['fullname']);
     $username = strtolower (stripslashes ($data ['username']));
     $email = htmlspecialchars($data ['email']);
@@ -84,5 +84,33 @@ function hapus($id) {
     return mysqli_affected_rows($conn);
 }
 
+function ubah($data) {
+    global $conn;
+
+    $id = $data["id"];
+    $gambar = htmlspecialchars($data["gambar"]);
+    $judul = htmlspecialchars($data["judul"]);
+    $isi = htmlspecialchars($data["isi"]);
+
+    $query = "UPDATE artikel SET
+    gambar = '$gambar',
+    judul = '$judul',
+    isi = '$isi'
+    WHERE id = $id
+    ";
+    
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+function cari($keyword) {
+    $query = "SELECT * FROM artikel
+    WHERE
+    judul LIKE '$keyword%'
+    ";
+
+    return query($query);
+}
 
 

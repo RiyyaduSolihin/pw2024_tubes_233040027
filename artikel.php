@@ -4,6 +4,11 @@ require 'function.php';
 //ambil data dari tabel artikel
 $artikel = query("SELECT * FROM artikel");
 
+// tombol cari diklik
+if( isset($_POST["cari"]) ) {
+  $artikel = cari($_POST["keyword"]);
+
+}
 
 ?>
 
@@ -31,6 +36,23 @@ $artikel = query("SELECT * FROM artikel");
     <h1>Halaman Admin</h1>
         Selamat datang di halaman admin
     </div>
+
+    <!-- tombol cari/search -->
+    <form action=""  method="POST">
+    <div class="col-md-6 col-lg-6 col-11 mx-auto my-auto search">
+    <div class="input-group from-container">
+      <input type="text" name="keyword" class="form-control search-input" placeholder="search" autofocus autocomplate="off">
+      <span class="input-group-btn">
+        <button type="submit" name="cari">
+          <img src="images/search.png" alt="" width="35">
+        </button>
+      </span>
+    </div>
+ </div>
+ </form>
+ <br>
+
+
     <table class="table">
   <thead>
     <tr>
@@ -50,7 +72,7 @@ $artikel = query("SELECT * FROM artikel");
       <td><?= $row["judul"]; ?></td>
       <td><?= $row["isi"]; ?></td>
       <td>
-        <a href="" class="badge text-bg-warning text-decoration-none">ubah</a>
+        <a href="ubah.php?id=<?= $row["id"] ?>" class="badge text-bg-warning text-decoration-none">ubah</a>
         <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');" class="badge text-bg-danger text-decoration-none">Hapus</a>
       </td>
       
