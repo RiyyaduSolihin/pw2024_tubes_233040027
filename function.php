@@ -55,7 +55,7 @@ function register($data)
     // $password = password_hash($password, PASSWORD_DEFAULT);
 
     // tambahkan userbaru ke database
-    mysqli_query($conn, "INSERT INTO users VALUES('$fullname', '$username', '$email','$password')");
+    mysqli_query($conn, "INSERT INTO users VALUES('$fullname', '$username', '$email','$password', '0')");
 
     return mysqli_affected_rows($conn);
 
@@ -142,16 +142,20 @@ function ubah($data) {
     $gambar = htmlspecialchars($data["gambar"]);
     $judul = htmlspecialchars($data["judul"]);
     $isi = htmlspecialchars($data["isi"]);
-    $gambarLama = htmlspecialchars($data["gambarLama"]);
 
+    // $gambarLama = htmlspecialchars($data["gambarLama"]);
+    $gambarLama = query("SELECT * FROM artikel WHERE id='$id'")[0];
+    // var_dump($_FILES['gambar']['error']);
+   
 // cek apakah pilih gambar baru atau tidak
-    if ( $_FILES['gambar']['eror'] === 4) {
-        $gambar = $gambarLama;
+    if ($_FILES['gambar']['error'] === 4) {
+        $gambar = $gambarLama['gambar'];
+        // echo "$gambarLama";
     } else {
         $gambar = upload();
     }
 
-
+    
     $query = "UPDATE artikel SET
     gambar = '$gambar',
     judul = '$judul',
@@ -171,6 +175,22 @@ function cari($keyword) {
     ";
 
     return query($query);
+}
+
+// menguji status user
+function cek_status($nama) {
+    global $conn;
+
+    $nama = escape($nama);
+
+    $query = "SELECT role FROM user WHERE username='$nama'";
+    $result = mysqli_query($conn, $query);
+    $result = mysqli_fetch_assoc($result)['role'];
+
+    die($status);
+    return $status;
+
+
 }
 
 

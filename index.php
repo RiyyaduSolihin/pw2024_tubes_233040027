@@ -1,4 +1,11 @@
 <?php
+
+session_start();
+
+if( !isset($_SESSION["login"])) {
+  header("Location: login.php");
+  exit;
+}
 require 'function.php';
 
 //ambil data dari tabel artikel
@@ -97,63 +104,9 @@ if( isset($_POST["cari"]) ) {
  </div>
  </form>
  <?php $i = 1; ?>
-    <?php foreach ( $artikel as $row ) : ?>
+    
  <div class="row pt-5 gx-4 gy-4 d-flex">
-  <!-- <div class="col-md-4 ">
-    <div class="card" ;>
-      <img src="images/miracle.jpg" class="card-img-top" 
-      alt="">
-      <div class="card-body">
-        <h5 class="card-title">Fakta Menarik di balik Kejaiban istanbul</h5>
-        <a href="" class="btn">Read more</a>
-       
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card">
-      <img src="images/arne.jpg" class="card-img-top" 
-      alt="">
-      <div class="card-body">
-        <h5 class="card-title">Welcome Arne Slot, Pelatih baru liverpool</h5>
-        <a href="" class="btn">Read more</a>
-       
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card">
-      <img src="images/liga.jpg" class="card-img-top" 
-      alt="">
-      <div class="card-body">
-        <h5 class="card-title">Gelar pertama Liverpool di era Primier leageu</h5>
-        <a href="" class="btn">Read more</a>
-       
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card">
-      <img src="images/klo.jpg" class="card-img-top" 
-      alt="">
-      <div class="card-body">
-        <h5 class="card-title">Terimakasih Jurgen</h5>
-        <a href="" class="btn">Read more</a>
-       
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card">
-      <img src="images/champions.jpg" class="card-img-top" 
-      alt="balado">
-      <div class="card-body">
-        <h5 class="card-title">Sejarah liverpool di liga champions</h5>
-        <a href="" class="btn">Read more</a>
-
-      </div> -->
-    <!-- </div>
-  </div>  -->
+ <?php foreach ( $artikel as $row ) : ?>
   <div class="col-4" >
     <div class="card">
       <img src="images/<?= $row["gambar"]; ?>"class="card-img-top" 
@@ -161,15 +114,14 @@ if( isset($_POST["cari"]) ) {
       <div class="card-body">
         <h5 class="card-title"><?= $row["judul"]; ?></h5>
         <p><?= $row["isi"]; ?></p>
-        <a href="" class="btn">Read more</a>
 
       </div>
     </div>
   </div>
-
- </div>
- <?php $i++; ?>
+  <?php $i++; ?>
     <?php endforeach; ?>
+ </div>
+ 
   </div>
 </div>
 

@@ -1,5 +1,23 @@
 <?php
+session_start();
 require 'function.php';
+
+if(isset($_SESSION["login"]) ) {
+   
+if ($_SESSION["role"]==='1') {
+
+    header("Location: hlmnadmin.php");
+    exit;
+} else {
+    // $_SESSION["login"] = true;
+    header("Location: index.php");
+    exit;
+}
+}
+
+  
+
+
 
 if (isset($_POST["login"])) {
     $email = $_POST["email"];
@@ -12,9 +30,23 @@ if (isset($_POST["login"])) {
 
         //cek password
         $row = mysqli_fetch_assoc($result);
-        if ( password_verify($password, $row["password"]) ) {
-            header("Location: index.php");
-            exit;
+        if ( $password === $row["password"])  {
+            // var_dump($row['role']);
+            // die;
+            // set session
+            $_SESSION["login"] = true;
+            if ($row["role"]==='1') {
+                $_SESSION["role"] = '1';
+
+                header("Location: hlmnadmin.php");
+                exit;
+            } else {
+                $_SESSION["role"] = '0';
+                // $_SESSION["login"] = true;
+                header("Location: index.php");
+                exit;
+            }
+          
         }
     }
 
