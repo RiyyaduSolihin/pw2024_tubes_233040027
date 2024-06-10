@@ -40,16 +40,16 @@ if( isset($_POST["cari"]) ) {
         </ul>
     </nav>
     <h1>Halaman Admin</h1>
-        Selamat datang di halaman admin
+        Selamat datang di halaman admin artikel
     </div>
 
     <!-- tombol cari/search -->
     <form action=""  method="POST">
     <div class="col-md-6 col-lg-6 col-11 mx-auto my-auto search">
     <div class="input-group from-container">
-      <input type="text" name="keyword" class="form-control search-input" placeholder="search" autofocus autocomplate="off">
+      <input type="text" name="keyword" class="form-control search-input" placeholder="search" autofocus autocomplate="off" id="keyword">
       <span class="input-group-btn">
-        <button type="submit" name="cari">
+        <button type="submit" name="cari" id="tombol-cari">
           <img src="images/search.png" alt="" width="35">
         </button>
       </span>
@@ -58,7 +58,7 @@ if( isset($_POST["cari"]) ) {
  </form>
  <br>
 
-
+<div id="container">
     <table class="table">
   <thead>
     <tr>
@@ -88,7 +88,8 @@ if( isset($_POST["cari"]) ) {
     
   </tbody>
 </table>
-
+</div>
+<script src="js/admin.js"></script>
 </body>
 </html>
 

@@ -94,17 +94,18 @@ if( isset($_POST["cari"]) ) {
  <form action=""  method="POST">
     <div class="col-md-6 col-lg-6 col-11 mx-auto my-auto search">
     <div class="input-group from-container">
-      <input type="text" name="keyword" class="form-control search-input" placeholder="search" autofocus autocomplate="off">
+      <input type="text" name="keyword" class="form-control search-input" placeholder="search" autofocus autocomplate="off" id="keyword">
       <span class="input-group-btn">
-        <button type="submit" name="cari">
+        <button type="submit" name="cari" id="tombol-cari">
           <img src="images/search.png" alt="" width="35">
         </button>
       </span>
     </div>
  </div>
  </form>
+
+ <div id="container">
  <?php $i = 1; ?>
-    
  <div class="row pt-5 gx-4 gy-4 d-flex">
  <?php foreach ( $artikel as $row ) : ?>
   <div class="col-4" >
@@ -123,6 +124,7 @@ if( isset($_POST["cari"]) ) {
  </div>
  
   </div>
+</div>
 </div>
 
 <!-- Trofi -->
@@ -188,5 +190,6 @@ if( isset($_POST["cari"]) ) {
  </div>
     <!-- Java script -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script src="js/script.js"></script>
 </body>
 </html>

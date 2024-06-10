@@ -139,7 +139,7 @@ function ubah($data) {
     global $conn;
 
     $id = $data["id"];
-    $gambar = htmlspecialchars($data["gambar"]);
+    $gambar = ($data["gambar"]);
     $judul = htmlspecialchars($data["judul"]);
     $isi = htmlspecialchars($data["isi"]);
 

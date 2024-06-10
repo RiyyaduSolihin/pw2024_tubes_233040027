@@ -40,7 +40,7 @@ $users = query("SELECT * FROM users");
     <tr>
       <th scope="col">No</th>
       <th scope="col">fullname</th>
-      <th scope="col">ussename</th>
+      <th scope="col">username</th>
       <th scope="col">Email</th>
       <th scope="col">password</th>
       <th scope="col">Aksi</th>
@@ -57,8 +57,7 @@ $users = query("SELECT * FROM users");
       <td><?= $row["email"]; ?></td>
       <td><?= $row["password"]; ?></td>
       <td>
-        <a href="" class="badge text-bg-warning text-decoration-none">ubah</a>
-        <a href="hapususer.php?fullname=<?= $row['fullname'];?>" class="badge text-bg-danger text-decoration-none">Hapus</a>
+        <a href="hapususer.php?fullname=<?= $row['fullname'];?>" onclick="return confirm('yakin?');" class="badge text-bg-danger text-decoration-none">Hapus</a>
       </td>
       
     </tr>
